@@ -48,12 +48,48 @@
         </dependency>
         <!-- 这里添加动态模块相关依赖 -->
 
+        <dependency>
+            <groupId>com.alipay.sofa</groupId>
+            <artifactId>sofa-ark-springboot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alipay.sofa</groupId>
+            <artifactId>web-ark-plugin</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alipay.sofa</groupId>
+            <artifactId>config-ark-plugin</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.sofastack</groupId>
+            <artifactId>dynamic-provider-66</artifactId>
+            <version>1.0.0</version>
+            <classifier>ark-biz</classifier>
+        </dependency>
 
     </dependencies>
 
     <build>
         <plugins>
             <!-- 这里配置动态模块打包插件 -->
+            <plugin>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>sofa-ark-maven-plugin</artifactId>
+                <version>0.6.0</version>
+                <executions>
+                    <execution>
+                        <id>default-cli</id>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <priority>100</priority>
+                    <baseDir>../</baseDir>
+                    <bizName>stock-mng-66</bizName>
+                </configuration>
+            </plugin>
 
         </plugins>
     </build>
